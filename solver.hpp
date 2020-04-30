@@ -12,11 +12,10 @@
 #include <strstream>
 #include <complex>
 #include <stdexcept>
-
 #define EPS 0.0001
 
-namespace  solver{
-    class RealVariable{
+namespace solver {
+    class RealVariable {
     private:
         double a;
         double b;
@@ -28,97 +27,135 @@ namespace  solver{
         RealVariable(double a_, double _b, double c_); // parameters
 
         // setters
-        double& getA();
-        double& getB();
-        double& getC();
+        double &getA();
+
+        double &getB();
+
+        double &getC();
 
         // getters
-        double const& getA() const;
-        double const& getB() const;
-        double const& getC() const;
+        double const &getA() const;
+
+        double const &getB() const;
+
+        double const &getC() const;
 
         // + operations : plus
-        friend RealVariable operator+(const RealVariable& current, const double n);
-        friend RealVariable operator+(const double n,const RealVariable& current);
-        friend RealVariable operator+(const RealVariable& num1,const RealVariable& num2);
+        friend RealVariable operator+(const RealVariable &current, const double n);
+
+        friend RealVariable operator+(const double n, const RealVariable &current);
+
+        friend RealVariable operator+(const RealVariable &num1, const RealVariable &num2);
 
         // - operations : minus
-        friend RealVariable operator-(const RealVariable& current,const double n);
-        friend RealVariable operator-(const double n,const RealVariable current);
-        friend RealVariable operator-(const RealVariable& num1,const RealVariable& num2);
+        friend RealVariable operator-(const RealVariable &current, const double n);
+
+        friend RealVariable operator-(const double n, const RealVariable current);
+
+        friend RealVariable operator-(const RealVariable &num1, const RealVariable &num2);
 
         // * operations : multiply
-        friend RealVariable operator*( const RealVariable& current,const  double n);
-        friend RealVariable operator*(const double n,const RealVariable& current);
-        friend RealVariable operator*(const RealVariable& num1,const RealVariable& num2);
+        friend RealVariable operator*(const RealVariable &current, const double n);
+
+        friend RealVariable operator*(const double n, const RealVariable &current);
+
+
 
         // / operations : divide
-        friend RealVariable operator/(const RealVariable& current,const double n);
-        friend RealVariable operator/(const double n,const RealVariable& current);
-        friend RealVariable operator/(const RealVariable& num1,const RealVariable& num2);
+        friend RealVariable operator/(const RealVariable &current, const double n);
+
+        friend RealVariable operator/(const double n, const RealVariable &current);
+
+        friend RealVariable operator/(const RealVariable &num1, const RealVariable &num2);
 
         // ^ operations : power
-        friend RealVariable operator^(const RealVariable& current,const double n);
+        friend RealVariable operator^(const RealVariable &current, const double n);
 
         // == operator
-        friend RealVariable operator==(const RealVariable& current,const double n);
-        friend RealVariable operator==(const double n,const RealVariable& current);
-        friend RealVariable operator==(const RealVariable& num1,const RealVariable& num2);
+        friend RealVariable operator==(const RealVariable &current, const double n);
+
+        friend RealVariable operator==(const double n, const RealVariable &current);
+
+        friend RealVariable operator==(const RealVariable &num1, const RealVariable &num2);
     };
 
-    class ComplexVariable{
+    class ComplexVariable {
     private:
-        std::complex <double> a;
-        std::  complex <double> b;
-        std::  complex <double> c;
+        std::complex<double> a;
+        std::complex<double> b;
+        std::complex<double> c;
 
     public:
 
         // constructors
         ComplexVariable();
-        ComplexVariable(std::complex <double> a,std::complex <double> b,std::complex <double> c);
+
+        ComplexVariable(std::complex<double> a, std::complex<double> b, std::complex<double> c);
 
         // setters
-        double& getA();
-        double& getB();
-        double& getC();
+        std::complex<double> &getA();
+
+        std::complex<double> &getB();
+
+        std::complex<double> &getC();
 
         // getters
-        double const& getA() const;
-        double const& getB() const;
-        double const& getC() const;
+        std::complex<double> const &getA() const;
+
+        std::complex<double> const &getB() const;
+
+        std::complex<double> const &getC() const;
 
         // + operator : plus
-        friend ComplexVariable operator+(const ComplexVariable& num1,const ComplexVariable &num2 );
-        friend ComplexVariable operator+(const ComplexVariable& current, const std::complex<double> n );
-        friend ComplexVariable operator+(const std::complex<double> n,const ComplexVariable& current);
+        friend ComplexVariable operator+(const ComplexVariable &num1, const ComplexVariable &num2);
+
+        friend ComplexVariable operator+(const ComplexVariable &current, const std::complex<double> n);
+
+        friend ComplexVariable operator+(const std::complex<double> n, const ComplexVariable &current);
 
         // - operator : minus
-        friend ComplexVariable operator-(const ComplexVariable& num1,const ComplexVariable &num2 );
-        friend ComplexVariable operator-(const ComplexVariable& current,const std::complex<double> n);
-        friend ComplexVariable operator-(const std::complex<double> n,const ComplexVariable& current);
+        friend ComplexVariable operator-(const ComplexVariable &num1, const ComplexVariable &num2);
+
+        friend ComplexVariable operator-(const ComplexVariable &current, const std::complex<double> n);
+
+        friend ComplexVariable operator-(const std::complex<double> n, const ComplexVariable &current);
 
         // * operator : multiply
-        friend ComplexVariable operator*(const ComplexVariable& num1, const ComplexVariable &num2);
-        friend ComplexVariable operator*(const ComplexVariable& current, const std::complex<double> n);
-        friend ComplexVariable operator*(const std::complex<double> n,const ComplexVariable& xcurrent);
+        friend ComplexVariable operator*(const ComplexVariable &current, const double n);
+
+        friend ComplexVariable operator*(const double n, const ComplexVariable &current);
+
+        friend ComplexVariable operator*(const ComplexVariable &current, const std::complex<double> n);
+
+        friend ComplexVariable operator*(const std::complex<double> n, const ComplexVariable &xcurrent);
 
         // / operator : divide
-        friend ComplexVariable operator/(const ComplexVariable& num1, const ComplexVariable &num2);
-        friend ComplexVariable operator/(const ComplexVariable& current, const std::complex<double> n);
-        friend ComplexVariable operator/(const std::complex<double> n,const ComplexVariable& current);
+        friend ComplexVariable operator/(const ComplexVariable &y_1, const ComplexVariable &y_2);
+
+        friend ComplexVariable operator/(const ComplexVariable &y, std::complex<double> n);
+
+        friend ComplexVariable operator/(std::complex<double> n, const ComplexVariable &y);
+
+        friend ComplexVariable operator/(const ComplexVariable &y, double n);
+
+        friend ComplexVariable operator/(double n, const ComplexVariable &y);
 
         // ^ operator : power
-        friend ComplexVariable operator^(const ComplexVariable &current, const std::complex<double> n);
+        friend ComplexVariable operator^(const ComplexVariable &current, int n);
 
         // == operator : equal
-        friend ComplexVariable operator==(const ComplexVariable &num1, const ComplexVariable &num2);
-        friend ComplexVariable operator==(const ComplexVariable &current, const std::complex<double> n);
-        friend ComplexVariable operator==(const std::complex<double> n,const ComplexVariable &current);
+        friend ComplexVariable operator==(const ComplexVariable &y_1, const ComplexVariable &y_2);
 
+        friend ComplexVariable operator==(const ComplexVariable &y, std::complex<double> n);
 
+        friend ComplexVariable operator==(std::complex<double> n, const ComplexVariable &y);
+
+        friend ComplexVariable operator==(const ComplexVariable &y, double n);
+
+        friend ComplexVariable operator==(double n, const ComplexVariable &y);
     };
-    double solve (const RealVariable& num);
-   std:: complex<double> solve (ComplexVariable y);
+        double solve(const RealVariable &num);
+
+        std::complex<double> solve(ComplexVariable y);
 }
 
