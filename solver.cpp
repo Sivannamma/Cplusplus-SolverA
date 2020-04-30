@@ -47,41 +47,41 @@ namespace solver {
     }
 
     // + operations : plus
-    RealVariable operator+(const RealVariable &current, const double n) {
+    RealVariable solver::operator+(const RealVariable &current, const double n) {
         return RealVariable(current.getA(), current.getB(), current.getC() + n);
     }
 
-    RealVariable operator+(const double n, const RealVariable &current) {
+    RealVariable solver::operator+(const double n, const RealVariable &current) {
         return current + n;
     }
 
-    RealVariable operator+(const RealVariable &num1, const RealVariable &num2) {
+    RealVariable solver::operator+(const RealVariable &num1, const RealVariable &num2) {
         return RealVariable(num1.getA() + num2.getA(), num1.getB() + num2.getB(), num1.getC() + num2.getC());
     }
 
     // - operations : minus
-    RealVariable operator-(const RealVariable &current, const double n) {
+    RealVariable solver::operator-(const RealVariable &current, const double n) {
         return RealVariable(current.getA(), current.getB(), current.getC() - n);
     }
 
-    RealVariable operator-(const double n, const RealVariable current) {
+    RealVariable solver::operator-(const double n, const RealVariable current) {
         return RealVariable(-current.getA(), -current.getB(), -current.getC() + n);
     }
 
-    RealVariable operator-(const RealVariable &num1, const RealVariable &num2) {
+    RealVariable solver::operator-(const RealVariable &num1, const RealVariable &num2) {
         return RealVariable(num1.getA() - num2.getA(), num1.getB() - num2.getB(), num1.getC() - num2.getC());
     }
 
     // * operations : multiply
-    RealVariable operator*(const RealVariable &current, const double n) {
+    RealVariable solver::operator*(const RealVariable &current, const double n) {
         return RealVariable(current.getA() * n, current.getB() * n, current.getC() * n);
     }
 
-    RealVariable operator*(const double n, const RealVariable &current) {
+    RealVariable solver::operator*(const double n, const RealVariable &current) {
         return current * n;
     }
 
-    RealVariable operator*(const RealVariable &x, const RealVariable &y) {
+    RealVariable solver::operator*(const RealVariable &x, const RealVariable &y) {
         if (x.getA() != 0 && y.getA() != 0) { // 4
             throw std::invalid_argument("the equations must be maximum square");
         }
@@ -95,11 +95,11 @@ namespace solver {
     }
 
     // / operations : divide
-    RealVariable operator/(const RealVariable &current, const double n) {
+    RealVariable solver::operator/(const RealVariable &current, const double n) {
         return RealVariable(current.getA() / n, current.getB() / n, current.getC() / n);
     }
 
-    RealVariable operator/(const double n, const RealVariable &current) {
+    RealVariable solver::operator/(const double n, const RealVariable &current) {
         return current / n;
     }
 
@@ -108,7 +108,7 @@ namespace solver {
 //    }
 
     // ^ operations : power
-    RealVariable operator^(const RealVariable &current, const double n) {
+    RealVariable solver:: operator^(const RealVariable &current, const double n) {
     if ( n==1)
         return RealVariable(current.getA(), current.getB(), current.getC());
     if(current.getA()!=0)
@@ -120,11 +120,11 @@ namespace solver {
     }
 
     // == operator
-    RealVariable operator==(const RealVariable &current, const double n);
+    RealVariable solver::operator==(const RealVariable &current, const double n);
 
-    RealVariable operator==(const double n, const RealVariable &current);
+    RealVariable solver:: operator==(const double n, const RealVariable &current);
 
-    RealVariable operator==(const RealVariable &num1, const RealVariable &num2);
+    RealVariable solver::operator==(const RealVariable &num1, const RealVariable &num2);
 
     // constructors
     ComplexVariable::ComplexVariable(){
@@ -147,7 +147,7 @@ namespace solver {
     }
 
     // getters
-    double const &ComplexVariable::getA() const {
+    double const & ComplexVariable::getA() const {
 
     }
 
@@ -160,42 +160,42 @@ namespace solver {
     }
 
     // + operator : plus
-    ComplexVariable operator+(const ComplexVariable &num1, const ComplexVariable &num2);
+    ComplexVariable solver::operator+(const ComplexVariable &num1, const ComplexVariable &num2);
 
-    ComplexVariable operator+(const ComplexVariable &current, const std::complex<double> n);
+    ComplexVariable solver::operator+(const ComplexVariable &current, const std::complex<double> n);
 
-    ComplexVariable operator+(const std::complex<double> n, const ComplexVariable &current);
+    ComplexVariable solver::operator+(const std::complex<double> n, const ComplexVariable &current);
 
     // - operator : minus
-    ComplexVariable operator-(const ComplexVariable &num1, const ComplexVariable &num2);
+    ComplexVariable solver::operator-(const ComplexVariable &num1, const ComplexVariable &num2);
 
-    ComplexVariable operator-(const ComplexVariable &current, const std::complex<double> n);
+    ComplexVariable solver::operator-(const ComplexVariable &current, const std::complex<double> n);
 
-    ComplexVariable operator-(const std::complex<double> n, const ComplexVariable &current);
+    ComplexVariable solver::operator-(const std::complex<double> n, const ComplexVariable &current);
 
     // * operator : multiply
-    ComplexVariable operator*(const ComplexVariable &num1, const ComplexVariable &num2);
+    ComplexVariable solver::operator*(const ComplexVariable &num1, const ComplexVariable &num2);
 
-    ComplexVariable operator*(const ComplexVariable &current, const std::complex<double> n);
+    ComplexVariable solver::operator*(const ComplexVariable &current, const std::complex<double> n);
 
-    ComplexVariable operator*(const std::complex<double> n, const ComplexVariable &xcurrent);
+    ComplexVariable solver::operator*(const std::complex<double> n, const ComplexVariable &xcurrent);
 
     // / operator : divide
-    ComplexVariable operator/(const ComplexVariable &num1, const ComplexVariable &num2);
+    ComplexVariable solver::operator/(const ComplexVariable &num1, const ComplexVariable &num2);
 
-    ComplexVariable operator/(const ComplexVariable &current, const std::complex<double> n);
+    ComplexVariable solver::operator/(const ComplexVariable &current, const std::complex<double> n);
 
-    ComplexVariable operator/(const std::complex<double> n, const ComplexVariable &current);
+    ComplexVariable solver::operator/(const std::complex<double> n, const ComplexVariable &current);
 
     // ^ operator : power
-    ComplexVariable operator^(const ComplexVariable &current, const std::complex<double> n);
+    ComplexVariable solver::operator^(const ComplexVariable &current, const std::complex<double> n);
 
     // == operator : equal
-    ComplexVariable operator==(const ComplexVariable &num1, const ComplexVariable &num2);
+    ComplexVariable solver::operator==(const ComplexVariable &num1, const ComplexVariable &num2);
 
-    ComplexVariable operator==(const ComplexVariable &current, const std::complex<double> n);
+    ComplexVariable solver::operator==(const ComplexVariable &current, const std::complex<double> n);
 
-    ComplexVariable operator==(const std::complex<double> n, const ComplexVariable &current);
+    ComplexVariable solver::operator==(const std::complex<double> n, const ComplexVariable &current);
 
     double solve(const RealVariable &num);
 
