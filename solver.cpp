@@ -83,6 +83,10 @@ RealVariable solver::operator*(const double n, const RealVariable &current) {
 
 // / operations : divide
 RealVariable solver::operator/(const RealVariable &current, const double n) {
+	if(n==0){
+ 	throw std::invalid_argument("cannot divide by 0");
+	}
+
     return RealVariable(current.getA() / n, current.getB() / n, current.getC() / n);
 }
 
@@ -124,6 +128,11 @@ RealVariable solver::operator== (const RealVariable& x , const double n){
     v.getC()= x.getC();
     v.getC()= x.getC() + (-1*n);
 
+	if(n!=0 && x.getA()==0 && x.getB()==0)
+	{
+	  throw std::invalid_argument("power cannot be over 2, invalid");
+	}
+
     return v;
 }
 RealVariable solver::operator== ( const double n ,const RealVariable& x){
@@ -132,6 +141,11 @@ RealVariable solver::operator== ( const double n ,const RealVariable& x){
     v.getB()= x.getB();
     v.getC()= x.getC();
     v.getC()= x.getC() + (-1*n);
+
+	if(n!=0 && x.getA()==0 && x.getB()==0)
+	{
+ 	 throw std::invalid_argument("power cannot be over 2, invalid");
+	}
     return v;
 }
 
