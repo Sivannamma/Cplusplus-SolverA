@@ -8,7 +8,7 @@ TEACHER_SOURCES := Demo.cpp TestCounter.cpp Test.cpp
 STUDENT_SOURCES := $(filter-out $(TEACHER_SOURCES), $(wildcard *.cpp))
 STUDENT_OBJECTS := $(subst .cpp,.o,$(STUDENT_SOURCES))
 
-run: demo test
+run: demo
 	./$^
 
 demo: Demo.o $(STUDENT_OBJECTS)
